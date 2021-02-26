@@ -44,7 +44,6 @@ const List = mongoose.model("List", listSchema);
 
 app.get("/", function(req, res) {
 
-
   Item.find({}, function(err, foundItems){
 
     if (foundItems.length === 0) {
@@ -100,10 +99,8 @@ app.post("/", function(req, res){
       foundList.items.push(item);
       foundList.save();
       res.redirect("/" + listName);
-    })
+    });
   }
-
-
 });
 
 app.post("/delete", function(req, res){
